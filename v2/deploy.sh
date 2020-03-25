@@ -30,7 +30,7 @@ done
 mkdir -p ~/"${domain}"/bin/builds/"${buildDir}"
 
 # Copy built dist
-cp -r ./dist/ ~/"${domain}"/bin/builds/"${buildDir}"
+cp -r ./dist ~/"${domain}"/bin/builds/"${buildDir}"
 
 # Remove existing symlink/web directory
 rm -rf ~/"${domain}"/web
@@ -38,4 +38,4 @@ rm -rf ~/"${domain}"/web
 cd ~/"${domain}"
 
 # Create new symlink
-ln -sf ./bin/builds/"${buildDir}"/www web
+ln -sf ./bin/builds/"${buildDir}"/dist web
