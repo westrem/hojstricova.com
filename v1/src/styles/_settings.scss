@@ -1,0 +1,43 @@
+///*-------------------------------------------*\
+//    #PROJECT SPECIFIC VARIABLES
+//\*-------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Cardo:400,400i,700|Caveat+Brush&subset=latin-ext');
+
+$max-width: 1280px;
+$font-main: 'Cardo', serif;
+$font-alt: 'Caveat Brush', cursive;
+
+$font-text: $font-main;
+$font-headline: $font-alt;
+
+$c1: #1A0B17;
+$c2: #BC2A8D;
+$c3: #8A4999;
+$c4: #FF8490;
+$c5: #FFFCF9;
+
+$c-black: $c1;
+$c-white: $c5;
+
+$c-bg: $c-white;
+$c-text: $c-black;
+$c-headline: $c2;
+$c-link: $c4;
+
+$bu: 24px;
+
+$breakpoints: (
+     "mini"          "screen and (max-width: 600px)",
+     "palm"          "screen and (min-width: 601px) and (max-width: 849px)",
+     "lap-mini"      "screen and (min-width: 850px) and (max-width: 999px)",
+     "lap"           "screen and (min-width: 1000px) and (max-width: 1199px)",
+     "lapmidtop"     "screen and (max-width: 800px)",
+     "laptop"        "screen and (max-width: 1000px)",
+     "lap-max"       "screen and (max-width: 1250px)",
+     "portable"      "screen and (min-width: 1251px) and (max-width: 1499px)",
+     "desk"          "screen and (min-width: 1500px) and (max-width: 1699px)",
+     "maxi"          "screen and (min-width: 1700px)",
+     "retina"        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)"
+ );
+
