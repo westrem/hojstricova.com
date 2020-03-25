@@ -1,0 +1,982 @@
+/*
+ * Variables
+ */
+$color-text: #242424;
+$color-brick: #E7684B;
+$color-brick-border: #C93B1B;
+$color-purple: #DBBAF4;
+$color-green: #AEF4D0;
+
+$color-link-normal: #242424;
+$color-link-hover: #242424;
+$color-link-active: #242424;
+$color-link-visited: #242424;
+
+$bg-link-hover: #A8DFFA;
+
+$font-crimson: 'Crimson Text', serif;
+$font-poppins: 'Poppins', sans-serif;
+
+$font-weight-xlight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$text-headline-size: 4.8rem;
+$text-headline-lh: 5.8rem;
+$text-size: 2.1rem;
+$text-lh: 3.2rem;
+
+$mobile-text-headline-size: 2.6rem;
+$mobile-text-headline-lh: 3.4rem;
+$mobile-text-headline-size-2: 3.6rem;
+$mobile-text-headline-lh-2: 3.6rem;
+$mobile-text-size: 1.6rem;
+$mobile-text-lh: 2.6rem;
+
+$mobile-spacing-sides: 22px;
+$spacing-sides: 50px;
+
+$mobile-section-spacing: 80px;
+$mobile-section-spacing-2: 140px;
+
+/*
+ * Breakpoints
+ */
+@mixin upTo413 { // Very Narrow
+  @media (max-width: 413px) { @content; }
+}
+@mixin upTo599 {
+  @media (max-width: 599px) { @content; }
+}
+@mixin upTo899 {
+  @media (max-width: 899px) { @content; }
+}
+@mixin upTo1199 { // Narrow
+  @media (max-width: 1199px) { @content; }
+}
+@mixin upTo1439 {
+  @media (max-width: 1439px) { @content; }
+}
+@mixin upTo1799 {
+  @media (max-width: 1799px) { @content; }
+}
+@mixin moreThan600 {
+  @media (min-width: 600px) { @content; }
+}
+@mixin moreThan900 { // Narrow, normal text
+  @media (min-width: 900px) { @content; }
+}
+@mixin moreThan1200 { // Wide
+  @media (min-width: 1200px) { @content; }
+}
+@mixin moreThan1440 { // Max wrapper width
+  @media (min-width: 1440px) { @content; }
+}
+@mixin moreThan1800 {
+  @media (min-width: 1800px) { @content; }
+}
+@mixin moreThan2220 {
+  @media (min-width: 2220px) { @content; }
+}
+
+/*
+ * Special content breakpoints
+ */
+@mixin upTo659 {
+  @media (max-width: 659px) { @content; }
+}
+
+@mixin moreThan660 {
+  @media (min-width: 660px) { @content; }
+}
+
+@mixin moreThan1032 {
+  @media (min-width: 1032px) { @content; }
+}
+
+html {
+  color: $color-text;
+  font-size: 62.5%;
+  line-height: 1;
+  font-family: $font-poppins;
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  background-color: #fff2f0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff2f0;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: $color-purple;
+  text-shadow: none;
+}
+
+::selection {
+  background: $color-purple;
+  text-shadow: none;
+}
+
+a::-moz-selection {
+  background: transparent;
+  text-shadow: none;
+}
+
+a::selection {
+  background: transparent;
+  text-shadow: none;
+}
+
+.print-only {
+  display: none;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
+
+hr {
+  display: none !important;
+}
+
+.wrapper {
+  position: relative;
+  max-width: 1440px;
+  margin: 0px auto;
+}
+
+header {
+  margin: 0px;
+  padding: 60px 0px 35px $mobile-spacing-sides;
+  position: relative;
+
+  text-align: right;
+  max-width: 50%;
+
+  @include upTo413 {
+    max-width: none;
+    padding: 30px $mobile-spacing-sides 65px $mobile-spacing-sides;
+  }
+
+  span {
+    display: none;
+  }
+
+  h1 {
+    margin: 0px;
+    padding: 0px;
+
+    font-family: $font-poppins;
+    font-weight: $font-weight-regular;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+
+    strong {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  blockquote {
+    padding: 0px;
+    margin: 0px;
+    font-style: normal;
+    font-family: $font-poppins;
+    font-weight: $font-weight-light;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+  }
+
+  @include moreThan660 {
+    h1 {
+      font-size: 2.1rem;
+      line-height: 3rem;
+    }
+
+    blockquote {
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+    }
+  }
+
+  @include moreThan1200 { // Wide
+    padding: 40px 0px 0px $mobile-spacing-sides;
+    width: auto;
+    max-width: auto;
+    text-align: left;
+    right: auto;
+
+    span {
+      display: inline;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
+  @include moreThan1440 { // Max wrapper width
+    padding: 40px 0px 0px 50px;
+  }
+}
+
+.portrait {
+  position: absolute;
+  width: 178px;
+  top: 23px;
+  right: 0px;
+
+  @include upTo413 {
+    width: 130px;
+    top: 135px;
+  }
+
+  @include moreThan600 {
+    width: 200px;
+    left: 65%;
+    right: auto;
+  }
+
+  @include moreThan900 { // Narrow, normal text
+    width: 215px;
+    left: 60%;
+  }
+
+  @include moreThan1200 { // Wide
+    width: 320px;
+    right: 127px;
+    left: auto;
+    top: 165px;
+  }
+
+  @include moreThan1440 { // Max wrapper width
+    right: 170px;
+  }
+}
+
+.navigation {
+  margin: 0px;
+  padding: 0px 0px 0px $mobile-spacing-sides;
+  position: relative;
+  right: 10px;
+  background-color: #fff2f0;
+
+  text-align: right;
+  max-width: 50%;
+
+  ul, li {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  a {
+    display: block;
+    padding-right: 34px;
+
+    text-decoration: none;
+    color: $color-text;
+
+    font-family: $font-poppins;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+
+    background-position: right center;
+    background-size: 24px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+    &.ico--cv {
+      background-image: url("../images/ico_cv.png?v={*version*}");
+    }
+    &.ico--in {
+      background-image: url("../images/ico_in.png?v={*version*}");
+      background-position-y: -10%;
+    }
+    &.ico--mail {
+      background-image: url("../images/ico_mail.png?v={*version*}");
+    }
+  }
+
+  li + li {
+    margin-top: 12px;
+  }
+
+  a, a:hover, a:active, a:visited {
+    color: $color-text;
+  }
+
+  span {
+    display: inline-block;
+    position: relative;
+    overflow: visible;
+    z-index: 20;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -5%;
+      top: 10%;
+      width: 0%;
+      height: 80%;
+      z-index: -1;
+      transform: rotate(-1.15deg);
+      background-color: $bg-link-hover;
+      transition: all 0.4s ease-out;
+    }
+  }
+
+  a:hover span::before {
+    width: 110%;
+  }
+
+  @include moreThan1200 { // Wide
+    position: fixed;
+    top: 60px;
+    right: $mobile-spacing-sides;
+    padding: 0px;
+    text-align: center;
+    width: 90px;
+
+    a {
+      padding: 28px 0px 0px 0px;
+
+      background-position: center top !important;
+      background-size: 24px;
+      line-height: 2.2rem;
+    }
+
+    li + li {
+      margin-top: 20px;
+    }
+  }
+
+  @include moreThan1440 { // Max wrapper width
+    right: 60px;
+  }
+  @include moreThan1800 {
+    right: 12%;
+  }
+  @include moreThan2220 {
+    right: 20%;
+  }
+}
+
+section > h2 {
+  font-family: $font-poppins;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-text-headline-size;
+  line-height: $mobile-text-headline-lh;
+  margin: 0px;
+  padding: 0px;
+
+  &.text-base--light {
+    font-weight: $font-weight-light;
+  }
+  &.text-base--regular {
+    font-weight: $font-weight-regular;
+  }
+
+  em {
+    font-weight: inherit;
+    font-style: italic;
+  }
+
+  i {
+    font-weight: $font-weight-xlight;
+    font-style: italic;
+  }
+
+  b {
+    font-weight: $font-weight-medium;
+    font-style: normal;
+  }
+
+  strong {
+    font-weight: $font-weight-bold;
+    font-style: normal;
+  }
+
+  @include moreThan660 {
+    font-size: $text-headline-size;
+    line-height: $text-headline-lh;
+  }
+}
+
+section > p {
+  margin: 0px;
+  padding: 0px;
+
+  font-family: $font-crimson;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-text-size;
+  line-height: $mobile-text-lh;
+
+  @include moreThan660 {
+    font-size: $text-size;
+    line-height: $text-lh;
+  }
+}
+
+section {
+  &.s-intro {
+    padding: $mobile-section-spacing $mobile-spacing-sides 0px $mobile-spacing-sides;
+    margin: 0px auto;
+
+    @include upTo659 {
+      max-width: 330px;
+    }
+    @include moreThan660 {
+      max-width: 660px;
+      padding-top: 128px;
+    }
+    @include moreThan900 {
+      padding-top: 150px;
+    }
+    @include moreThan1200 { // Wide
+      padding: 180px 0px 0px $mobile-section-spacing-2;
+      margin: 0px;
+    }
+    @include moreThan1440 { // Wide
+      padding: 180px 0px 0px 190px;
+    }
+  }
+
+  &.s-who {
+    padding: 0px $mobile-spacing-sides;
+    margin: $mobile-section-spacing auto 0px auto;
+
+    text-align: right;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position-x: -70px;
+    background-position-y: top;
+    background-size: 210px;
+    background-image: url("../images/ilu_who.svg?v={*version*}");
+
+    @include upTo659 {
+      max-width: 330px;
+    }
+    @include moreThan660 {
+      max-width: 660px;
+      background-size: 310px;
+      margin-top: $mobile-section-spacing-2;
+    }
+    @include moreThan1200 { // Wide
+      margin: 326px 0px 0px 0px;
+      text-align: left;
+      background-position-x: -30px;
+      background-position-y: top;
+      background-size: 540px;
+      height: 455px;
+      max-width: 100%;
+    }
+    @include moreThan1440 { // Max wrapper width
+      background-position-x: 70px;
+    }
+
+    h2 {
+      padding: 135px 0px 0px 0px;
+      margin: 0px 0px 25px 0px;
+
+      @include upTo659 {
+        font-size: $mobile-text-headline-size-2;
+        line-height: $mobile-text-headline-lh-2;
+      }
+      @include moreThan1200 { // Wide
+        padding-top: 60px;
+        margin-bottom: 42px;
+      }
+    }
+
+    h2, p {
+      @include moreThan1200 { // Wide
+        max-width: 400px;
+        position: relative;
+        left: 620px;
+      }
+      @include moreThan1440 { // Max wrapper width
+        left: 740px;
+      }
+    }
+
+    p br {
+      @include upTo413 {
+        display: none;
+      }
+    }
+  }
+
+  &.s-keywords {
+    text-align: center;
+    margin: 0px auto;
+    padding: $mobile-section-spacing 0px 0px 0px;
+
+    @include upTo659 {
+      max-width: 360px;
+    }
+    @include moreThan660 {
+      max-width: 660px;
+      padding-top: $mobile-section-spacing-2;
+    }
+    @include moreThan1200 { // Wide
+      max-width: 825px;
+      padding-top: 250px;
+    }
+  }
+
+  &.s-freelance {
+    padding: 0px $mobile-spacing-sides;
+    margin: $mobile-section-spacing auto 0px auto;
+
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position-x: 215px;
+    background-position-y: top;
+    background-size: 278px;
+    background-image: url("../images/ilu_free.svg?v={*version*}");
+
+    @include upTo659 {
+      max-width: 330px;
+    }
+    @include moreThan660 {
+      max-width: 660px;
+      background-size: 408px;
+      background-position-x: 400px;
+      margin-top: $mobile-section-spacing-2;
+    }
+    @include moreThan1200 { // Wide
+      margin: 284px 0px 0px 0px;
+      text-align: right;
+      background-position-x: 536px;
+      background-size: 620px;
+      height: 395px;
+      max-width: 100%;
+    }
+    @include moreThan1440 { // Max wrapper width
+      background-position-x: 670px;
+    }
+
+    h2 {
+      padding: 155px 0px 0px 0px;
+      margin: 0px 0px 25px 0px;
+
+      @include upTo659 {
+        font-size: $mobile-text-headline-size-2;
+        line-height: $mobile-text-headline-lh-2;
+      }
+      @include moreThan1200 { // Wide
+        padding-top: 80px;
+        margin-bottom: 42px;
+      }
+    }
+
+    h2, p {
+      @include moreThan660 {
+        max-width: 400px;
+      }
+      @include moreThan1200 { // Wide
+        position: relative;
+        left: 0px;
+      }
+      @include moreThan1440 { // Max wrapper width
+        left: 126px;
+      }
+    }
+  }
+
+  &.s-hire {
+    padding: 0px $mobile-spacing-sides;
+    margin: 55px auto 0px auto;
+    text-align: center;
+
+    @include upTo659 {
+      max-width: 330px;
+    }
+    @include moreThan660 {
+      margin-top: $mobile-section-spacing;
+    }
+    @include moreThan1200 { // Wide
+      margin: 90px 0px 0px 0px;
+    }
+
+    p em {
+      font-style: italic;
+      font-weight: $font-weight-regular;
+    }
+
+    .button {
+      display: block;
+      position: relative;
+      z-index: 20;
+      margin: 35px auto 0px auto;
+      padding: 0px;
+      width: 315px;
+
+      border: 1px solid $color-brick-border;
+      font-family: $font-poppins;
+      font-weight: $font-weight-regular;
+      font-size: 2rem;
+      line-height: 4.4rem;
+      text-decoration: none;
+      text-align: center;
+
+      &, &:hover, &:active, &:visited {
+        color: $color-text;
+      }
+
+      @include upTo413 {
+        width: 270px;
+      }
+
+      @include moreThan1200 { // Wide
+        margin-top: 42px;
+        font-size: 2.4rem;
+        line-height: 6.4rem;
+      }
+
+      strong {
+        font-weight: $font-weight-bold;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 0%;
+        height: 0%;
+        z-index: -1;
+        background-color: #ffd1c8;
+        transition: all 0.4s ease-in-out;
+      }
+
+      &:hover::before {
+        width: 50%;
+        height: 100%;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 0%;
+        height: 0%;
+        z-index: -1;
+        background-color: #ffd1c8;
+        transition: all 0.4s ease-in-out;
+      }
+
+      &:hover::after {
+        width: 50%;
+        height: 100%;
+      }
+    }
+  }
+
+  &.s-clients {
+    margin-top: $mobile-section-spacing;
+
+    @include moreThan660 {
+      margin-top: $mobile-section-spacing-2;
+    }
+    @include moreThan1200 { // Wide
+      margin-top: 235px;
+    }
+
+    h2 {
+      max-width: 1440px;
+      padding: 0px $mobile-spacing-sides;
+      margin: 0px auto 15px auto;
+      text-align: right;
+
+      @include upTo659 {
+        font-size: $mobile-text-headline-size-2;
+        line-height: $mobile-text-headline-lh-2;
+      }
+      @include moreThan1200 { // Wide
+        margin: 0px auto 20px auto;
+      }
+      @include moreThan1440 { // Max wrapper width
+        padding: 0px 70px;
+      }
+    }
+
+    & > div {
+      background-color: $color-text;
+    }
+
+    ul {
+      margin: 0px auto;
+      padding: 45px 0px;
+      list-style: none;
+      max-width: 330px;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      align-content: flex-start;
+
+      li {
+        width: 165px;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 165px;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        font-size: 0px;
+        color: transparent;
+
+        &.hc2--1 {
+          height: 80px;
+        }
+        &.hc2--2 {
+          height: 104px;
+        }
+
+        &.logo--bonami {
+          background-image: url("../images/logo_bonami.png?v={*version*}")
+        }
+        &.logo--campari {
+          background-image: url("../images/logo_campari.png?v={*version*}")
+        }
+        &.logo--metaxa {
+          background-image: url("../images/logo_metaxa.png?v={*version*}")
+        }
+        &.logo--milka {
+          background-image: url("../images/logo_milka.png?v={*version*}")
+        }
+        &.logo--tullamore {
+          background-image: url("../images/logo_tullamore.png?v={*version*}")
+        }
+        &.logo--jager {
+          background-image: url("../images/logo_jager.png?v={*version*}")
+        }
+        &.logo--jacobs {
+          background-image: url("../images/logo_jacobs.png?v={*version*}")
+        }
+        &.logo--tassimo {
+          background-image: url("../images/logo_tassimo.png?v={*version*}")
+        }
+        &.logo--henkel {
+          background-image: url("../images/logo_henkel.png?v={*version*}")
+        }
+        &.logo--teta {
+          background-image: url("../images/logo_teta.png?v={*version*}")
+        }
+      }
+
+      @include moreThan1032 { // Wide
+        max-width: 1012px;
+
+        li {
+          width: 253px;
+          background-size: 253px;
+
+          &.hc4--1 {
+            height: 101px !important;
+          }
+          &.hc4--2 {
+            height: 132px !important;
+          }
+          &.hc4--3 {
+            height: 147px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.underline {
+  display: inline-block;
+  position: relative;
+  overflow: visible;
+  padding: 0px 1%;
+  z-index: 20;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0%;
+    top: -1%;
+    width: 100%;
+    height: 102%;
+    z-index: -1;
+  }
+
+  .s-intro &::before {
+    top: 0%;
+    height: 100%;
+  }
+
+  &.color--brick::before {
+    background-color: $color-brick;
+  }
+  &.color--green::before {
+    background-color: $color-green;
+  }
+  &.color--purple::before {
+    background-color: $color-purple;
+  }
+
+  &.rotate--plus-200::before {
+    transform: rotate(2deg);
+  }
+  &.rotate--plus-125::before {
+    transform: rotate(1.25deg);
+  }
+  &.rotate--minus-125::before {
+    transform: rotate(-1.25deg);
+  }
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote, section {
+    page-break-inside: avoid;
+  }
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+  tr, img {
+    page-break-inside: avoid;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  section {
+    &.s-intro, &.s-keywords {
+      padding-top: 60px
+    }
+    &.s-who, &.s-freelance {
+      margin-top: 60px;
+
+      h2 {
+        padding-top: 0px;
+      }
+    }
+    &.s-hire {
+      margin-top: 20px;
+    }
+  }
+  .portrait {
+    right: 80px;
+    left: auto;
+  }
+  .navigation {
+    right: 0px;
+
+    a {
+      padding-right: 0px;
+
+      span {
+        display: none;
+      }
+    }
+  }
+  .button span {
+    display: none;
+  }
+  .print-hide {
+    display: none;
+  }
+  .print-only {
+    display: inline !important;
+    font-style: normal;
+  }
+}
