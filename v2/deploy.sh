@@ -22,7 +22,8 @@ curVersion="${dateHashed}-${shortHash}"
 
 for file in $(find ./dist -name '*.html' -or -name '*.css' -or -name '*.scss' -or -name '*.sass');
 do
-  sed -i '' "s/{\*version\*}/${shortHash}/g" "$file"
+  sed -i.bak "s/{\*version\*}/${shortHash}/g" "$file"
+  rm "$file.bak"
 done
 
 # Create the build dir
