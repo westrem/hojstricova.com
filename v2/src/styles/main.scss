@@ -258,7 +258,7 @@ header {
     }
 
     br {
-      display: none;
+      //display: none;
     }
   }
 
@@ -531,6 +531,11 @@ section {
         font-size: $mobile-text-headline-size-2;
         line-height: $mobile-text-headline-lh-2;
       }
+
+      @include moreThan660 {
+        padding-top: 35px;
+      }
+
       @include moreThan1200 { // Wide
         padding-top: 60px;
         margin-bottom: 42px;
@@ -545,6 +550,15 @@ section {
       }
       @include moreThan1440 { // Max wrapper width
         left: 740px;
+      }
+    }
+
+    p {
+      @include moreThan660 {
+        padding-left: 250px;
+      }
+      @include moreThan1200 {
+        padding-left: 0px;
       }
     }
 
